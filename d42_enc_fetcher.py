@@ -77,7 +77,7 @@ def process_d42_node_enc(d42_node, node_classes_field):
     yaml.default_flow_style = False
     printer('node_classes_field is set to: %s' % (node_classes_field))
     # printer(json.dumps(d42_node, indent=4, sort_keys=True ))
-    node_classes_obj = { "classes": json.loads(node['value'])  for node in d42_node['custom_fields'] if "node_classes" in node['key'] }
+    node_classes_obj = { "classes": json.loads(node['value'])  for node in d42_node['custom_fields'] if node_classes_field in node['key'] }
     node_classes_obj = top_level_classes_reducer(node_classes_obj)
     #printer(node_classes_obj)
 
